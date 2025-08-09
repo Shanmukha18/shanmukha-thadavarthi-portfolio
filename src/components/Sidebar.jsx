@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../styles/global.css'
 
-function Sidebar() {
+function Sidebar({ isMobileMenuOpen, closeMobileMenu }) {
   const [activeSection, setActiveSection] = useState('about')
 
   useEffect(() => {
@@ -30,19 +30,49 @@ function Sidebar() {
     return () => observer.disconnect()
   }, [])
 
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId)
+    if (isMobileMenuOpen) {
+      closeMobileMenu()
+    }
+  }
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isMobileMenuOpen ? 'active' : ''}`}>
       <div className="intro">
         <h1 className="name">Shanmukha Thadavarthi</h1>
         <h2 className="role">Web Developer</h2>
       </div>
 
       <nav className="nav-links">
-        <a href="#about" className={activeSection === 'about' ? 'active' : ''}>About</a>
-        <a href="#education" className={activeSection === 'education' ? 'active' : ''}>Education</a>
-        <a href="#projects" className={activeSection === 'projects' ? 'active' : ''}>Projects</a>
-        <a href="#skills" className={activeSection === 'skills' ? 'active' : ''}>Skills</a>
+        <a 
+          href="#about" 
+          className={activeSection === 'about' ? 'active' : ''}
+          onClick={() => handleNavClick('about')}
+        >
+          About
+        </a>
+        <a 
+          href="#education" 
+          className={activeSection === 'education' ? 'active' : ''}
+          onClick={() => handleNavClick('education')}
+        >
+          Education
+        </a>
+        <a 
+          href="#projects" 
+          className={activeSection === 'projects' ? 'active' : ''}
+          onClick={() => handleNavClick('projects')}
+        >
+          Projects
+        </a>
+        <a 
+          href="#skills" 
+          className={activeSection === 'skills' ? 'active' : ''}
+          onClick={() => handleNavClick('skills')}
+        >
+          Skills
+        </a>
       </nav>
 
       <div className="social-icons">
