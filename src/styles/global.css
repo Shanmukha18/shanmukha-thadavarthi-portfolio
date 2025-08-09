@@ -1,0 +1,543 @@
+/* === global.css (ALL STYLES MERGED) === */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: auto;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #0a192f;
+  color: #ccd6f6;
+  overflow-x: hidden;
+  overflow-y: auto;  /* ✅ Add this */
+  scroll-behavior: smooth;
+}
+
+
+/* App Layout */
+.app {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  height: auto; /* ✅ allow height to expand */
+}
+
+.main-content {
+  margin-left: 400px; /* match new sidebar width */
+  padding: 2rem 2em 2rem 1.5rem;
+  width: calc(100% - 400px);
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Gradient Background */
+.gradient-bg-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle 349px at 0.3% 48.6%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(87, 124, 253, 0.89) 100.7%
+  );
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* Shared Sections */
+.about-section,
+.education-section,
+.projects-section {
+  width: 100%;
+}
+
+/* === Sidebar === */
+.sidebar {
+  position: fixed;
+  top: 1.5rem;
+  left: 2.5rem;
+  width: 280px;
+  height: calc(100vh - 3rem);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+
+  /* Subtle frosted glass effect */
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+
+  /* Softer shadow */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #64ffda;
+}
+
+.role {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #8892b0;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #a8b2d1;
+}
+
+.nav-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #ccd6f6;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #64ffda;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.social-icons a {
+  color: #8892b0;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #64ffda;
+}
+
+/* === About Section === */
+.about-section {
+  padding: 4rem 0;
+  max-width: 700px;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #64ffda;
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #a8b2d1;
+}
+
+/* === Education Section === */
+.education-section {
+  padding: 4rem 0;
+  max-width: 700px;
+}
+
+.education-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #64ffda;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 1.5rem;
+  border-left: 2px solid rgba(100, 255, 218, 0.2); /* subtle line */
+  padding-left: 2rem;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 1rem;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background: rgba(100, 255, 218, 0.6);
+  box-shadow: 0 0 12px rgba(100, 255, 218, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  left: -2.1rem; /* pull it to the left of the line */
+  top: 6px;
+  backdrop-filter: blur(8px);
+}
+
+.timeline-content h3 {
+  font-size: 1.15rem;
+  color: #ccd6f6;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-content h4 {
+  font-size: 1rem;
+  color: #a8b2d1;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.timeline-period {
+  font-size: 0.85rem;
+  color: #8892b0;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: #a8b2d1;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+
+/* === Projects Section === */
+.projects-section {
+  padding: 4rem 0;
+  max-width: 900px;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #64ffda;
+}
+
+.project-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05); /* translucent background */
+  backdrop-filter: blur(10px);      /* glassy blur effect */
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(2, 12, 27, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* POP effect */
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(100, 255, 218, 0.3);
+  z-index: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.icon-button {
+  color: #64ffda;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(2, 12, 27, 0.2);
+}
+
+.icon-button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(100, 255, 218, 0.3);
+}
+
+/* DIM other cards slightly when one is hovered */
+.project-grid:hover .project-card {
+  opacity: 0.7;
+}
+
+.project-grid .project-card:hover {
+  opacity: 1;
+}
+
+.project-card h3 {
+  color: #ccd6f6;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #8892b0;
+  margin-bottom: 1rem;
+}
+
+.github-link {
+  color: #64ffda;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #52c2b4;
+}
+
+.skills-section {
+  padding: 4rem 0;
+  max-width: 900px;
+}
+
+.skills-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #64ffda;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.skill-icon {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 120px;
+  min-width: 90px;
+  min-height: 100px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.skill-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.3);
+}
+
+.skill-icon .icon {
+  font-size: 2rem;
+  color: #64ffda;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skill-icon .label {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #ccd6f6;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Breathing keyframes */
+@keyframes breathe {
+  0% { opacity: 1; transform: scale(1.1); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+
+/* Active link breathing effect */
+.nav-links a.active {
+  animation: breathe 2s infinite ease-in-out;
+  transform: scale(1.1);
+  color: #7afccf;
+}
+
+/* Scroll spacing so sections don’t get hidden under sidebar */
+.about-section,
+.education-section,
+.projects-section,
+.skills-section {
+  scroll-margin-top: 200px;
+}
+
+/* === Hover breathing and pop for social icons === */
+.social-icons a {
+  color: #8892b0;
+  transition: transform 0.4s ease, color 0.4s ease;
+  display: inline-block;
+}
+
+/* Breathing and scale effect on hover */
+.social-icons a:hover {
+  animation: breathing 2s infinite;
+  transform: scale(1.3);
+  color: #64ffda;
+}
+
+/* Breathing keyframes */
+@keyframes breathing {
+  0% { opacity: 1; transform: scale(1.3); }
+  50% { opacity: 0.85; transform: scale(1.35); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+.resume-button {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 20;
+
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64ffda;
+  text-decoration: none;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effects - pop + breathe */
+.resume-button:hover {
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(100, 255, 218, 0.3);
+  animation: breathing 2s infinite;
+}
+
+/* Breathing keyframes (already in your CSS, repeating just in case) */
+@keyframes breathing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.about-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.about-links .social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-links .social-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Codeforces SVG specific styling */
+.leetcode-icon .codeforces-icon {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+.about-links {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Each link block (icon + label) */
+.about-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover breathing + color pop */
+.about-link-item:hover {
+  transform: scale(1.07);
+  animation: breathing 2s infinite;
+  color: #64ffda;
+}
+
+/* Individual icons */
+.leetcode-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(1.3);
+}
+
+.codeforces-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(1.3);
+}
