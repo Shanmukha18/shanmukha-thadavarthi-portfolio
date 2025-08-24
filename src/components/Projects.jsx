@@ -3,6 +3,12 @@ import { motion } from 'framer-motion'
 
 const projects = [
   {
+    name: 'ViOLA',
+    description: 'A cab ride sharing website for VIT Students built with React and Spring Boot.',
+    github: 'https://github.com/Shanmukha18/ViOLA',
+    demo: 'https://viola-frontend-plum.vercel.app/',
+  },
+  {
     name: 'UniBuy',
     description: 'An e-commerce website built with React and Spring Boot.',
     github: 'https://github.com/Shanmukha18/UniBuy',
